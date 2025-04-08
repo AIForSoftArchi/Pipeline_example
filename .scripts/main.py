@@ -57,11 +57,11 @@ def main():
 
 def report_status(response):
     if response == "No violations found." :
-        print("✅ No violations found.")
+        print("::notice:: ✅ No violations found.")
         if is_pipeline_run :
           sys.exit(0)
     else:
-        print(f"❌ Found these violations in the project:\n")
+        print(f"::error::❌ Found these violations in the project:\n")
         print(response)
         if is_pipeline_run :
           sys.exit(1)
