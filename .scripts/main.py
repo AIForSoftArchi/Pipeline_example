@@ -59,12 +59,22 @@ def report_status(response):
     if response == "No violations found." :
         print("::notice:: ✅ No violations found.")
         if is_pipeline_run :
+          write_summary("::notice:: ✅ No violations found.")
           sys.exit(0)
     else:
         print(f"::error::❌ Found these violations in the project:\n")
         print(response)
         if is_pipeline_run :
+          write_summary(f"::error::❌ Found these violations in the project:\n" + response)
           sys.exit(1)
+
+def write_summary(summary_text: str):
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary_path and summary_text:
+        with open(summary_path, "a", encoding="utf-8") as f:
+            f.write("```\n")
+            f.write(summary_text)
+            f.write("\n```\n")
 
 # This ensures that main() only runs when the script is executed directly
 if __name__ == "__main__":
