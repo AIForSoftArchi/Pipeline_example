@@ -2,7 +2,7 @@ namespace Domain.Entities
 {
     public class Customer
     {
-        public int Id { get; private set; }
+        public int Id { get; public set; }
         public string Name { get; private set; }
 
         private Customer() { } // For EF/Core or serialization

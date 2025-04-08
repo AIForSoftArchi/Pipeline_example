@@ -59,13 +59,13 @@ def report_status(response):
     if response == "No violations found." :
         print("::notice:: ✅ No violations found.")
         if is_pipeline_run :
-          write_summary("::notice:: ✅ No violations found.")
+          write_summary("✅ No violations found.")
           sys.exit(0)
     else:
-        print(f"::error::❌ Found these violations in the project:\n")
+        print(f"::error::❌ Found violations of the architecture in the project!\n")
         print(response)
         if is_pipeline_run :
-          write_summary(f"::error::❌ Found these violations in the project:\n" + response)
+          write_summary(f"❌ Found these violations in the project:\n" + response)
           sys.exit(1)
 
 def write_summary(summary_text: str):
