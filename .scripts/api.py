@@ -1,6 +1,7 @@
 # LLM API interaction
 
 ## For error handling
+import uuid
 import requests
 
 ## loading secrets
@@ -83,7 +84,7 @@ def ClaudeAPI(input_list, assistant_settings=None):
         model="claude-3-5-sonnet-20241022",
         max_tokens=8192,
         temperature=0,
-        system=f"You are a world-class programmer. {assistant_settings}",
+        system=f"You are a world-class programmer. Run ID: {uuid.uuid4()} {assistant_settings}",
         messages= input_list
     )
 
