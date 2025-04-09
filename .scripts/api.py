@@ -84,7 +84,7 @@ def ClaudeAPI(input_list, assistant_settings=None):
         model="claude-3-5-sonnet-20241022",
         max_tokens=8192,
         temperature=0,
-        system=f"You are a world-class programmer. Run ID: {uuid.uuid4()} {assistant_settings}",
+        system=f"You are a world-class programmer. {assistant_settings} Also your name is: {uuid.uuid4()}.",
         messages= input_list
     )
 
@@ -134,7 +134,8 @@ def CreateComplianceReportArchitecture(input_list, chosen_API=APIChoice.CLAUDE):
             You should be focusing on dependency flow, layer responsibilities, and domain isolation. 
             Your analysis will be precise and actionable, highlighting only genuine architectural violations, 
             and naming the exact files involved, and the specific principle being violated. 
-            If no violations are found, return "No violations found.", and nothing else than this. """)
+            If no violations are found, return "No violations found.", and nothing else than this. 
+            You SHALL and MUST look through the contents of all given files, and be 100 percent certain there is no violations present, before returning "No violations found." """)
     elif chosen_API == APIChoice.CHATGPT:
         raise NotImplementedError("ChatGPT support is not implemented yet.")
     
