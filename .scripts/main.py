@@ -44,9 +44,12 @@ def main():
   # make the prompt into a string, and the format of a prompt.
   promptString = parser.strutureJSONToString(tempList)
   finalPrompt = parser.StringToPrompt(promptString)
+  print("Prompt to API" + finalPrompt)
 
   # Here is the call to the API, that returns an answer
   answer = api.CreateComplianceReportArchitecture(finalPrompt)
+
+  print("ANSWER FROM API" + answer)
 
   # Extract the text from the response
   answerText = parser.ListWithTextBlockToString(answer.content)
