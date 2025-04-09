@@ -124,7 +124,7 @@ def CreateComplianceReportArchitecture(input_list, chosen_API=APIChoice.CLAUDE):
     if chosen_API == APIChoice.CLAUDE:
         return ClaudeAPI(
             input_list, 
-            """I will give you some code files, where I will start by giving the relative path, and then the code. 
+            f"""I will give you some code files, where I will start by giving the relative path, and then the code. 
             Each file starts with '### START FILE: <filename> ###' and ends with '### END FILE: <filename> ###'. 
             You should now decide if these files and their placement in the folders have compliance of the code architecture "Onion", 
             in accordance to if it upholds these standards. You shall return a list of what is wrong according to the "Onion" 
@@ -136,7 +136,8 @@ def CreateComplianceReportArchitecture(input_list, chosen_API=APIChoice.CLAUDE):
             and naming the exact files involved, and the specific principle being violated. 
             If no violations are found, return "No violations found.", followed by a list of each file you were given, and one
             thing/principle this file does to adhere to the architecture. 
-            Before you write "No violations found" , you shall check each line, and double check that the statements you make about the adherence is true.""")
+            Before you write "No violations found" , you shall check each line, and double check that the statements you make about the adherence is true.
+            Also, your name is {uuid.uuid4()} """)
     elif chosen_API == APIChoice.CHATGPT:
         raise NotImplementedError("ChatGPT support is not implemented yet.")
     
