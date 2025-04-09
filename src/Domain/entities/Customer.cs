@@ -2,9 +2,10 @@ namespace Domain.Entities
 {
     public class Customer
     {
-        
- 
+
+
         public int Id { get; public set; }
+        //This is a comment
         public string Name { get; private set; }
 
         private Customer() { } // For EF/Core or serialization
