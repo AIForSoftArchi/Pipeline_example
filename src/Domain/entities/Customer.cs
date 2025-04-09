@@ -2,7 +2,8 @@ namespace Domain.Entities
 {
     public class Customer
     {
-
+        
+ 
         public int Id { get; public set; }
         public string Name { get; private set; }
 
