@@ -10,11 +10,6 @@ def StringToPrompt(input):
     """
     return [{"role": "user", "content": input } ]
 
-def StringToJSONList(inputString, seperator = None):
-    tempList = inputString.splitlines()
-    
-
-
 def strutureJSONToString(input):
     """ 
         This function prepares the code and code structure for the API.
@@ -24,6 +19,9 @@ def strutureJSONToString(input):
         output: A string
 
     """
+    # Sort by file_path to ensure deterministic order
+    input = sorted(input, key=lambda x: x["file_path"])
+
     amountOfElements = len(input)
     finalstring = f"I have {amountOfElements} files I am giving you here. First I will give you the relative paths for the files, and then I will give the code in these files. \n"
 
