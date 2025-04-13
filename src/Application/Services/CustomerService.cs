@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Application.Interfaces;
 using Domain.Entities;
 using Application.Models;
+using Infrastructure.Data;
 
 namespace Application.Services
 {
