@@ -1,5 +1,3 @@
-using Application.Models;
-
 namespace Domain.Entities
 {
     public class Customer
@@ -19,11 +17,6 @@ namespace Domain.Entities
         {
             // Add any domain validation here
             return new Customer(id, name);
-        }
-
-        public static Customer FromDto(CustomerDTO dto)
-        {
-            return new Customer(dto.Id, dto.Name);
         }
     }
 }
